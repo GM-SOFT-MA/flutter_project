@@ -53,10 +53,11 @@ class SelectCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Expanded(child: Icon(choice.icon, size:50.0, color: textStyle.color)),
-              new FlatButton(
+              new TextButton(
                 child: new Text("Close"),
                 onPressed: () {
                   _showDialog(context);
+                  //Navigator.of(context).pop();
                 },
               ),
                Padding(
@@ -83,43 +84,22 @@ class SelectCard extends StatelessWidget {
           content: new Text("Alert Dialog body"),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
-            new FlatButton(
-              child: new Text("Close"),
+            new TextButton(
+              child: new Text("Ok"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
+            new TextButton(
+              child: new Text("Cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+
           ],
         );
       },
     );
   }
-}
-
-
-
-showAlertDialog(BuildContext context) {
-
-  // set up the button
-  Widget okButton = FlatButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("My title"),
-    content: Text("This is my message."),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
 }
